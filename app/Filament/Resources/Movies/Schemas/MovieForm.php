@@ -8,6 +8,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\CheckboxList;
+use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Schema;
 
 class MovieForm
@@ -16,7 +17,7 @@ class MovieForm
     {
         return $schema
             ->components([
-                // 🎬 Datos de la película
+                // Datos de la película
                 TextInput::make('title')
                     ->required()
                     ->unique(ignoreRecord: true),
@@ -24,18 +25,14 @@ class MovieForm
                 Textarea::make('description')
                     ->required()
                     ->columnSpanFull(),
-
                 DatePicker::make('release_year')
                     ->required(),
-
-                TextInput::make('photo_url')
-                    ->url()
+                FileUpload::make('photo_url')
+                    ->image()
                     ->required(),
-
                 TextInput::make('background_url')
                     ->url()
                     ->required(),
-
                 TextInput::make('trailer_url')
                     ->url()
                     ->required(),
