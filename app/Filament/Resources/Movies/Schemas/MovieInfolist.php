@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Movies\Schemas;
 
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
@@ -22,7 +23,7 @@ class MovieInfolist
                     ->columnSpanFull(),
                 TextEntry::make('release_year')
                     ->date(),
-                TextEntry::make('photo_url'),
+                ImageEntry::make('photo_url'),
                 TextEntry::make('background_url'),
                 TextEntry::make('trailer_url'),
             ]);
