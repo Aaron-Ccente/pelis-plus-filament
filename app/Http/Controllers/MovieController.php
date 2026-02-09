@@ -16,8 +16,7 @@ class MovieController extends Controller
     }
 
     public function getAllMovies(){
-        return ResourcesMovieResource::collection(
-        Movie::with('genres')->paginate(10)
-    );
+    $data = Movie::with('genres')->paginate(10);
+    return ResourcesMovieResource::collection($data);
     }
 }
