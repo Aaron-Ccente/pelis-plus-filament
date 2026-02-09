@@ -6,6 +6,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -28,8 +29,7 @@ class MoviesTable
                 TextColumn::make('release_year')
                     ->date()
                     ->sortable(),
-                TextColumn::make('photo_url')
-                    ->searchable(),
+                ImageColumn::make('photo_url'),
                 TextColumn::make('background_url')
                     ->searchable(),
                 TextColumn::make('trailer_url')
