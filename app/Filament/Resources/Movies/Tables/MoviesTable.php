@@ -29,7 +29,8 @@ class MoviesTable
                 TextColumn::make('release_year')
                     ->date()
                     ->sortable(),
-                ImageColumn::make('photo_url'),
+                ImageColumn::make('photo_url')
+                ->disk('public'),
                 TextColumn::make('background_url')
                     ->searchable(),
                 TextColumn::make('trailer_url')

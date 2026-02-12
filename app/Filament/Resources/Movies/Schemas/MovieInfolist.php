@@ -23,7 +23,9 @@ class MovieInfolist
                     ->columnSpanFull(),
                 TextEntry::make('release_year')
                     ->date(),
-                ImageEntry::make('photo_url'),
+                ImageEntry::make('photo_url')
+                    ->disk('public')
+                    ->visibility('public'),
                 TextEntry::make('background_url'),
                 TextEntry::make('trailer_url'),
             ]);
