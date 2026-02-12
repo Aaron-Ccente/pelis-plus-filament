@@ -15,6 +15,7 @@ class MovieResource extends JsonResource
      *
      * @return array<string, mixed>
      */
+
     public function toArray(Request $request): array
     {
         return [
@@ -22,9 +23,16 @@ class MovieResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'release_year' => $this->release_year,
-            'photo_url' => asset('storage/' . $this->photo_url),
-            'genres' => $this->whenLoaded('genres', function () {
-                return $this->genres->pluck('name');
-            }),  ];
+
+            'photo_url' => $this->photo_url 
+                        ? asset('storage/' . $this->photo_url) 
+                        : null,
+
+            'background_url' => $this->background_url,
+            'trailer_url' => $this->trailer_url,
+
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+        ];
     }
 }

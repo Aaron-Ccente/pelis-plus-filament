@@ -7,4 +7,4 @@ Route::get('/', function () {
     return redirect('/admin/login');
 });
 
-Route::get('/movies', [MovieController::class, 'getAllMovies']);
+Route::get('/movies', [MovieController::class, 'getAllmoviesAPI']);

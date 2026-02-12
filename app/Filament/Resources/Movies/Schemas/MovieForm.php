@@ -29,6 +29,9 @@ class MovieForm
                     ->required(),
                 FileUpload::make('photo_url')
                     ->image()
+                    ->disk('public')
+                    ->directory('movies')
+                    ->visibility('public')
                     ->required(),
                 TextInput::make('background_url')
                     ->url()
