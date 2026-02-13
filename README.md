@@ -1,59 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# NEXUS - Plataforma Empresarial de Gestión y Telefonía
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+NEXUS es una plataforma empresarial desarrollada en Laravel 12, diseñada para centralizar la gestión administrativa mediante múltiples módulos CRUD y una integración avanzada con telefonía Genesys Cloud.
 
-## About Laravel
+El sistema permite administrar entidades internas, estructuras organizacionales y configuraciones de telefonía desde un panel administrativo moderno construido con Filament.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Características Principales
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Módulos Administrativos (Arquitectura basada en CRUD)
 
-## Learning Laravel
+- Gestión de Usuarios
+- Roles y Permisos
+- Divisiones y Estructura Organizacional
+- Catálogos Parametrizables
+- Configuración de Entidades Operativas
+- Auditoría y Registro de Actividad
+- Gestión de Configuración General del Sistema
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Todos los módulos administrativos están desarrollados con **Filament**, permitiendo:
+- Panel administrativo moderno
+- Formularios dinámicos
+- Tablas con filtros avanzados
+- Acciones masivas
+- Validaciones integradas
+- Control de acceso por roles
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## Módulo de Telefonía (Integración con Genesys Cloud)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+NEXUS integra funcionalidades de telefonía mediante la API oficial de Genesys Cloud.
 
-### Premium Partners
+### Funcionalidades implementadas:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- Creación de teléfonos (`/api/v2/telephony/providers/edges/phones`)
+- Configuración de Phone Base Settings
+- Gestión de Lines y asignación de divisiones
+- Integración con Edges y Sites
+- Autenticación OAuth (Client Credentials)
+- Manejo de errores de API (401, 404, etc.)
+- Procesamiento en segundo plano mediante Jobs
+- Logs de integración y trazabilidad
 
-## Contributing
+La integración permite automatizar la provisión y configuración de dispositivos telefónicos directamente desde el sistema administrativo.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## Arquitectura Tecnológica
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Backend
 
-## Security Vulnerabilities
+- Framework: Laravel 12
+- PHP: 8.2+
+- Base de Datos: Amazon DynamoDB
+- Autenticación: Laravel Sanctum
+- Autorización: Spatie Laravel Permission
+- Jobs y Colas: Laravel Queue
+- Cliente HTTP: Laravel HTTP Client
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Base de Datos
 
-## License
+Se utiliza Amazon DynamoDB como motor NoSQL, lo que permite:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Alta escalabilidad
+- Baja latencia
+- Modelo flexible basado en documentos
+- Optimización para cargas de lectura y escritura intensivas
+
+Las entidades están diseñadas considerando claves primarias y secundarias según los patrones de acceso del sistema.
+
+### Panel Administrativo
+
+Desarrollado con:
+
+- Filament Admin Panel
+- Recursos CRUD personalizados
+- Formularios reactivos
+- Gestión de relaciones
+- Políticas de acceso integradas
+
+---
+
+## Instalación
+
+### Requisitos
+
+- PHP 8.2+
+- Composer
+- Node.js y npm
+- Cuenta AWS con acceso a DynamoDB
+- Credenciales de Genesys Cloud (Client ID y Client Secret)
+
+---
+
+### Pasos de Instalación
+
+1. Clonar el repositorio
+
+```bash
+git clone <url-del-repositorio>
+cd nexus
