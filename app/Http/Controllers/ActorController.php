@@ -62,4 +62,12 @@ class ActorController extends Controller
     {
         //
     }
+
+    public function getActors()
+    {
+        $actors = Actor::query()
+            ->latest()
+            ->paginate(20);
+        return response()->json($actors, 200);
+    }
 }
