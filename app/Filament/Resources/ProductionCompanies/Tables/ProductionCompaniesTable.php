@@ -14,7 +14,9 @@ class ProductionCompaniesTable
     {
         return $table
             ->columns([
-                TextColumn::make('name')
+                TextColumn::make('name'),
+                TextColumn::make('created_at')
+                ->dateTime(),
             ])
             ->filters([
                 //
