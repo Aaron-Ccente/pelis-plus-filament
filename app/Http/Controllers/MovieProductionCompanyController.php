@@ -31,35 +31,4 @@ class MovieProductionCompanyController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Movie_production_company $movie_production_company)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Movie_production_company $movie_production_company)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Movie_production_company $movie_production_company)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Movie_production_company $movie_production_company)
-    {
-        //
-    }
 }
