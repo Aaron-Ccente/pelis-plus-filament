@@ -13,6 +13,6 @@ class Production_company extends Model
 
     public function movies()
     {
-        return $this->belongsToMany(Movie::class, 'movie_production_companies', 'production_company_id', 'movie_id');
+        return $this->belongsToMany(Movie::class, 'movie_production_companies', 'production_companies_id', 'movie_id');
     }
 }
