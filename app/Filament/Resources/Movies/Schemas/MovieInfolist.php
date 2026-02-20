@@ -28,6 +28,10 @@ class MovieInfolist
                     ->visibility('public'),
                 TextEntry::make('background_url'),
                 TextEntry::make('trailer_url'),
+                TextEntry::make('productionCompanies.name')
+                    ->label('Productoras')
+                    ->badge()
+                    ->separator(', ')
             ]);
     }
 }
