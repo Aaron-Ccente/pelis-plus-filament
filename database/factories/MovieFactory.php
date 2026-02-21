@@ -20,6 +20,7 @@ class MovieFactory extends Factory
             'title'=> fake()->name(),
             'description' => fake()->text(),
             'release_year' => fake()->date(),
+            'url_video' => fake()->url(),
             'photo_url' => fake()->image(),
             'background_url' => fake()->image(),
             'trailer_url' => fake()->image()

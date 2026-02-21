@@ -29,6 +29,10 @@ class MoviesTable
                 TextColumn::make('release_year')
                     ->date()
                     ->sortable(),
+                TextColumn::make('stars_avg_start_number')
+                    ->label('Promedio')
+                    ->avg('stars', 'start_number')
+                    ->numeric(2),
                 ImageColumn::make('photo_url')
                 ->disk('public'),
                 TextColumn::make('background_url')
