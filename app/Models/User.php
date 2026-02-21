@@ -52,4 +52,8 @@ class User extends Authenticatable
             ->withTimestamps();
     }
 
+    public function starts()
+    {
+        return $this->hasMany(Star::class);
+    }
 }
