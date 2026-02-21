@@ -36,6 +36,10 @@ class Movie extends Model
     {
         return $this->belongsToMany(Production_Company::class, 'movie_production_companies', 'movie_id','production_company_id');
     }
+    public function stars()
+    {
+        return $this->hasMany(Star::class);
+    }
 
     public function usersWhoSaved()
     {

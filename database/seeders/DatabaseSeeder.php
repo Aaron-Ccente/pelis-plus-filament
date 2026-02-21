@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -21,7 +20,8 @@ class DatabaseSeeder extends Seeder
             ActorSeeder::class,
             MovieSeeder::class,
             UserSeeder::class,
-            ProductionCompanySeeder::class
+            ProductionCompanySeeder::class,
+            StarSeeder::class
         ]);
     }
 }
