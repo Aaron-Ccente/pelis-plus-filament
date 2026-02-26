@@ -12,7 +12,8 @@ class Star extends Model
 
     protected $fillable = [
         'movie_id',
-        'start_number'    
+        'start_number',
+        'user_id'   
         ];
 
     public function movie()
