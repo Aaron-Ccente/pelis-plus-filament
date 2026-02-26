@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Http\Requests\StarMovieRequest;
 use App\Http\Resources\MovieResource as ResourcesMovieResource;
 use App\Models\Movie;
+use App\Models\Star;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {
@@ -31,4 +34,22 @@ class MovieController extends Controller
         ->setStatusCode(200);
     }
 
+    public function setStarMovie(StarMovieRequest $request){
+    $request->validated();
+
+    $star = Star::updateOrCreate(
+        [
+            'movie_id' => $request->movie_id,
+            'user_id' => $request->user_id,
+        ],
+        [
+            'star_number' => $request->star_number,
+        ]
+    );
+
+    return response()->json([
+        'message' => 'Calificación guardada correctamente',
+        'data' => $star,
+    ]);
+    }
 }
