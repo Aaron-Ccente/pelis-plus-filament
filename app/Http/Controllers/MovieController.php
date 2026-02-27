@@ -25,9 +25,9 @@ class MovieController extends Controller
     }
 
     public function getAllmoviesAPI(){
-    $movies = Movie::query()
+    $movies = Movie::with(['genres'])
         ->latest()
-        ->paginate(20);
+        ->paginate(perPage: 20);
 
     return ResourcesMovieResource::collection($movies)
         ->response()
