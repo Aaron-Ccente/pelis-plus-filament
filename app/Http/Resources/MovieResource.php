@@ -30,7 +30,8 @@ class MovieResource extends JsonResource
 
             'background_url' => $this->background_url,
             'trailer_url' => $this->trailer_url,
-
+            'genres' => $this->whenLoaded('genres'),
+            'stars_average' => round($this->stars_avg_start_number ?? 0, 1),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
