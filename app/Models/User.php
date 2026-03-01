@@ -54,6 +54,6 @@ class User extends Authenticatable
 
     public function starts()
     {
-        return $this->hasMany(Star::class);
+        return $this->hasMany(related: Star::class);
     }
 }
