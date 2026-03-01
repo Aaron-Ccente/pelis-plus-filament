@@ -12,8 +12,8 @@ class EditUser extends EditRecord
 
     protected function getHeaderActions(): array
     {
-        return [
+        return auth()->user()->can('eliminar.usuarios')?[
             DeleteAction::make(),
-        ];
+        ]:[];
     }
 }
