@@ -18,6 +18,8 @@ use Filament\Tables\Table;
 
 class MovieResource extends Resource
 {
+    protected static string | \UnitEnum | null $navigationGroup = 'Películas';
+    protected static ?int $navigationSort = 2;
     protected static ?string $model = Movie::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
