@@ -26,12 +26,18 @@ class MovieInfolist
                 ImageEntry::make('photo_url')
                     ->disk('public')
                     ->visibility('public'),
-                TextEntry::make('background_url'),
+                ImageEntry::make('background_url')
+                    ->disk('public')
+                    ->visibility('public'),
                 TextEntry::make('trailer_url'),
                 TextEntry::make('productionCompanies.name')
                     ->label('Productoras')
                     ->badge()
-                    ->separator(', ')
+                    ->separator(', '),
+                TextEntry::make('genres.name')
+                    ->label('Generos')
+                    ->badge()
+                    ->separator()
             ]);
     }
 }
