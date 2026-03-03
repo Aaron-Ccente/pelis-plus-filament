@@ -34,9 +34,9 @@ class MoviesTable
                     ->avg('stars', 'start_number')
                     ->numeric(2),
                 ImageColumn::make('photo_url')
-                ->disk('public'),
-                TextColumn::make('background_url')
-                    ->searchable(),
+                    ->disk('public'),
+                ImageColumn::make('background_url')
+                    ->disk('public'),
                 TextColumn::make('trailer_url')
                     ->searchable(),
             ])

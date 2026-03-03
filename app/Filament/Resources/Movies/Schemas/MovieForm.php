@@ -7,7 +7,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Schema;
 
@@ -33,8 +32,11 @@ class MovieForm
                     ->directory('movies')
                     ->visibility('public')
                     ->required(),
-                TextInput::make('background_url')
-                    ->url()
+                FileUpload::make('background_url')
+                    ->image()
+                    ->disk('public')
+                    ->directory('movies')
+                    ->visibility('public')
                     ->required(),
                 TextInput::make('trailer_url')
                     ->url()
@@ -59,11 +61,16 @@ class MovieForm
                     TextInput::make('character_name')->required(),
                 ]),
 
-                CheckboxList::make('genres')
+                Select::make('genres')
+                    ->label('Generos')
                     ->relationship('genres', 'name')
-                    ->columns(3),
-
+                    ->multiple()
+                    ->searchable()
+                    ->createOptionForm([
+                        TextInput::make('name')->required(),
+                    ]),
                 Select::make('production_companies')
+                    ->label('Productoras')
                     ->relationship('productionCompanies', 'name')
                     ->multiple()
                     ->searchable()
