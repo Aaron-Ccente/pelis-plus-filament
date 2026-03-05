@@ -43,9 +43,12 @@ class RoleSeeder extends Seeder
         }
 
         $adminRole = Role::firstOrCreate([
-            ['name' => 'admin'],
-            ['name' => 'gestor.usuarios'],
-            ]);
+            'name' => 'admin',
+        ]);
+
+        $gestorRole = Role::firstOrCreate([
+            'name' => 'gestor.usuarios',
+        ]);
 
         Role::firstOrCreate(['name' => 'user']);
 
