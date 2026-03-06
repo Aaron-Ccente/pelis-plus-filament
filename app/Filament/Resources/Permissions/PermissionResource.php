@@ -16,8 +16,16 @@ use Spatie\Permission\Models\Permission;
 
 class PermissionResource extends Resource
 {
+    protected static string | \UnitEnum | null $navigationGroup = 'Administración';
+
     protected static ?string $model = Permission::class;
 
+    public static function canViewAny(): bool
+    {
+        return (
+            auth()->user()?->hasRole(['admin', 'gestor.usuarios'])
+        ) ?? false;
+    }
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'name';

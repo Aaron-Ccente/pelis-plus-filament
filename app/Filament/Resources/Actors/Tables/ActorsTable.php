@@ -36,11 +36,13 @@ class ActorsTable
             ])
             ->recordActions([
                 ViewAction::make(),
-                EditAction::make(),
+                EditAction::make()
+                    ->visible(fn()=>auth()->user()->can('editar.usuarios')),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+                    DeleteBulkAction::make()
+                    ->visible(fn()=>auth()->user()->can('eliminar.usuarios')),
                 ]),
             ]);
     }

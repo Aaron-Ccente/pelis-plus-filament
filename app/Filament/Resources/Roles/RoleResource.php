@@ -19,7 +19,10 @@ class RoleResource extends Resource
     protected static string | \UnitEnum | null $navigationGroup = 'Administración';
 
     protected static ?string $model = Role::class;
-
+    public static function canViewAny(): bool
+    {
+        return auth()->user()->hasRole('admin') ?? false;
+    }
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'Role';
