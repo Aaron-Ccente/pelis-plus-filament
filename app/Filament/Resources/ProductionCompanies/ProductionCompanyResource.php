@@ -16,6 +16,8 @@ use Filament\Tables\Table;
 
 class ProductionCompanyResource extends Resource
 {
+    protected static string | \UnitEnum | null $navigationGroup = 'Películas';
+
     protected static ?string $model = Production_company::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
