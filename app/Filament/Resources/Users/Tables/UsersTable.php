@@ -24,15 +24,22 @@ class UsersTable
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('roles.name')
+                        ->default('Sin Rol asignado')
                         ->label('Rol')
                         ->badge()
+                        ->separator(', '),
+                TextColumn::make('permissions.name')
+                        ->label('Permisos')
+                        ->badge()
                         ->separator(', ')
+                        ->visible(fn () => auth()->user()->hasRole('admin') || auth()->user()->can('ver.permisos'))
             ])
             ->filters([
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                    EditAction::make()
+                        ->visible(fn () => auth()->user()?->can('editar.usuarios')),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
