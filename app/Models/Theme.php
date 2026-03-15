@@ -10,7 +10,7 @@ class Theme extends Model
     /** @use HasFactory<\Database\Factories\ThemeFactory> */
     use HasFactory;
     protected $fillable = [
-        'campania_id',
+        'user_id',
         'data',
         'data_dark'
     ];
@@ -18,4 +18,9 @@ class Theme extends Model
     'data' => 'array',
     'data_dark' => 'array',
 ];
+
+public function user()
+{
+    return $this->belongsTo(User::class);
+}
 }
